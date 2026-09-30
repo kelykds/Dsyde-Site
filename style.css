@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+    --bg-principal: #fcfcfc;
+    --accent: #575757;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-principal);
+    overflow-x: hidden;
+}
+
+/* --- ESTILO DOS CARDS (Journal & Outros) --- */
+/* --- ESTILO BASE DOS CARDS --- */
+.news-card, .op-card, .resource-card {
+    display: block; /* Mantemos sempre block ou flex */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: 
+        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    visibility: visible;
+    backface-visibility: hidden; /* Melhora performance de animação */
+    will-change: transform, opacity; /* Otimiza animações */
+}
+
+/* --- ESTADO ESCONDIDO (FLUIDO) --- */
+.card-hidden {
+    opacity: 0 !important;
+    transform: translateY(20px) scale(0.95) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Container precisa ser relativo para o absolute não quebrar */
+.grid {
+    display: grid;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+/* Hover mantendo sua lógica original */
+.news-card:hover, .op-card:hover, .resource-card:hover { 
+    transform: translateY(-8px); 
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+}
+
+/* --- ANIMAÇÃO DE FILTRO --- */
+.card-hidden {
+    opacity: 0 !important;
+    transform: scale(0.9) translateY(20px) !important;
+    pointer-events: none;
+}
+
+/* --- SEUS ESTILOS ORIGINAIS PRESERVADOS --- */
+.hero-pattern {
+    background-color: #1d1d1d;
+    background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.date-badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #1d1d1d; }
