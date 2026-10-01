@@ -37,28 +37,28 @@ body {
     z-index: -1;
 }
 
-/* Container precisa ser relativo para o absolute não quebrar */
+
 .grid {
     display: grid;
     position: relative;
     transition: all 0.5s ease;
 }
 
-/* Hover mantendo sua lógica original */
+
 .news-card:hover, .op-card:hover, .resource-card:hover { 
     transform: translateY(-8px); 
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
 }
 
-/* --- ANIMAÇÃO DE FILTRO --- */
+
 .card-hidden {
     opacity: 0 !important;
     transform: scale(0.9) translateY(20px) !important;
     pointer-events: none;
 }
 
-/* --- SEUS ESTILOS ORIGINAIS PRESERVADOS --- */
+
 .hero-pattern {
     background-color: #1d1d1d;
     background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
@@ -71,6 +71,34 @@ body {
     border-radius: 99px;
     font-size: 0.75rem;
     color: #888;
+}
+
+button {
+    background-color: #1d1d1d;
+    color: #ccc;
+    border: 16px;
+    padding: 12px 24px; 
+    border-radius: 8px;
+    height: 60px;
+    width: 300px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #888;
+    transform: translateY(-2px);
+}
+
+.cont-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+    height: 150px;
 }
 
 ::-webkit-scrollbar { width: 8px; }
